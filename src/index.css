@@ -1,4 +1,6 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
+
+/* @import 'components/Contacts.css';  */
 
 body {
   margin: 0;
@@ -7,6 +9,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #02041a;
+  color: #147fdc;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 code {

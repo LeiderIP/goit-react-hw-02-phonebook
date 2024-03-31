@@ -1,0 +1,51 @@
+.Form {
+  display: flex;
+  flex-direction: row;
+}
+
+.Input:first-child {
+  margin-right: 10px;
+}
+
+.Input {
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid #bbe313;
+  color: #fff;
+  width: 150px;
+  height: 25px;
+  padding-left: 5px;
+}
+
+.Input:hover {
+  border-color: #147fdc;
+}
+
+.Button {
+  background-color: #bbe313;
+  border: none;
+  border-radius: 10px;
+  height: 25px;
+  width: 100px;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+.Button:hover {
+  cursor: pointer;
+  background-color: #147fdc;
+  transform: scale(1.12);
+}
+
+.List {
+  width: 300px;
+  margin: 40px auto;
+}
+
+.List-contact {
+  color: #fff;
+  font-weight: bold;
+  margin-right: 15px;
+  margin: 0 0 10px 0;
+  text-align: left;
+}
