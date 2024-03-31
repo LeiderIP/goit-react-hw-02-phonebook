@@ -1,39 +1,54 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 
-export const ContactForm = ({ addContact }) => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+class ContactForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      number: '',
+    };
+  }
 
-  const handleSubmit = e => {
+  handleSubmit = e => {
     e.preventDefault();
-    addContact(name, number);
-    setName('');
-    setNumber('');
+    const { name, number } = this.state;
+    this.props.addContact(name, number);
+    this.setState({ name: '', number: '' });
   };
 
-  return (
-    <form className="Form" onSubmit={handleSubmit}>
-      <input
-        className="Input"
-        type="text"
-        name="name"
-        value={name}
-        onChange={e => setName(e.target.value)}
-        placeholder="Enter name"
-        required
-      />
-      <input
-        className="Input"
-        type="tel"
-        name="number"
-        value={number}
-        onChange={e => setNumber(e.target.value)}
-        placeholder="Enter phone number"
-        required
-      />
-      <button className="Button" type="submit">
-        Add Contact
-      </button>
-    </form>
-  );
-};
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  render() {
+    const { name, number } = this.state;
+
+    return (
+      <form className="Form" onSubmit={this.handleSubmit}>
+        <input
+          className="Input"
+          type="text"
+          name="name"
+          value={name}
+          onChange={this.handleChange}
+          placeholder="Enter name"
+          required
+        />
+        <input
+          className="Input"
+          type="tel"
+          name="number"
+          value={number}
+          onChange={this.handleChange}
+          placeholder="Enter phone number"
+          required
+        />
+        <button className="Button" type="submit">
+          Add Contact
+        </button>
+      </form>
+    );
+  }
+}
+
+export default ContactForm;

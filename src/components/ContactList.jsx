@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export const ContactList = ({ contacts, deleteContact }) => {
-  const handleDelete = id => {
-    deleteContact(id);
+class ContactList extends Component {
+  handleDelete = id => {
+    this.props.deleteContact(id);
   };
 
-  return (
-    <ul className="List">
-      {contacts.map(contact => (
-        <li className="List-contact" key={contact.id}>
-          {contact.name}: {contact.number}
-          <button className="Button" onClick={() => handleDelete(contact.id)}>
-            Delete
-          </button>
-        </li>
-      ))}
-    </ul>
-  );
-};
+  render() {
+    const { contacts } = this.props;
+
+    return (
+      <ul className="List">
+        {contacts.map(contact => (
+          <li className="List-contact" key={contact.id}>
+            {contact.name}: {contact.number}
+            <button
+              className="Button"
+              onClick={() => this.handleDelete(contact.id)}
+            >
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+}
+
+export default ContactList;
