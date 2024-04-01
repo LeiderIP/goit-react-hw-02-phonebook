@@ -27,8 +27,8 @@ class App extends Component {
     this.setState({ contacts: updatedContacts });
   };
 
-  handleFilterChange = e => {
-    this.setState({ filter: e.target.value });
+  handleFilterChange = filter => {
+    this.setState({ filter });
   };
 
   render() {
